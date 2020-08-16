@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,12 +17,17 @@ import java.util.Objects;
 
 public class FirstFragment extends Fragment {
 
+    EditText editText;
+    Button dateButton;
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
+
+
         return inflater.inflate(R.layout.fragment_first, container, false);
 
     }
@@ -30,12 +36,25 @@ public class FirstFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
+
+        view.findViewById(R.id.date_edit_text).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                showDatePickerDialog(getView());
+
+            }
+        });
+
         view.findViewById(R.id.date_picker_button).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 showDatePickerDialog(getView());
+
+//                view.findViewById(R.id.date_edit_text).text
             }
         });
+
+
 
         view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
             @Override
